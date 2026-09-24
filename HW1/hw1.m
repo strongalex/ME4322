@@ -16,6 +16,8 @@ clc
 clear
 close all
 
+tstart = tic;
+
 %% ---------------- Assumptions ----------------
 % 1. Planar mechanism, rigid links, frictionless revolute pins.
 % 2. Links are 4340 steel bars of the given cross section (width 10 cm,
@@ -310,6 +312,9 @@ Tk = table(degIn, omegaLink(:,2),omegaLink(:,3),omegaLink(:,4),omegaLink(:,5), .
                      'Bx','By','Cx','Cy','Ex','Ey','Fx','Fy'});
 writetable(Tk,'kinematics_matlab.csv');
 fprintf('\nWrote kinematics_matlab.csv\n');
+outFile = fullfile(pwd,'kinematics_matlab.csv');
+writetable(Tk,outFile);
+fprintf('Wrote %s\n', outFile);
 
 %% ---------------- Plots ----------------
 deg = rad2deg(sweep);
@@ -453,3 +458,5 @@ end
 function a = wrapPi(x)
 a = mod(x+pi,2*pi) - pi;
 end
+
+tstop = toc(tstart)
