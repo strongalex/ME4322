@@ -16,18 +16,18 @@ L1 = 0.2575;    % long lever length, A to B (Fig. 26)
 L2 = 0.1528;    % short lever length, D to C (Fig. 26)
 L3 = 0.008;     % pin to pivot, bell crank arm to B (Fig. 20)
 L4 = 0.018;     % pivot to rack joint S (Fig. 21)
-L5 = 0.025;     % A to platform load point, long lever   TODO
-L7 = 0.120;     % A to C, short lever tip on long lever   TODO
-L8 = 0.025;     % D to platform load point, short lever  TODO
-Rp = 0.00175;   % pinion pitch radius, 10 teeth          TODO
+L5 = 0.02;     % A to platform load point, long lever   
+L7 = 0.128;     % A to C, short lever tip on long lever   
+L8 = 0.02;     % D to platform load point, short lever  
+Rp = 0.00175;   % pinion pitch radius, 10 teeth  
 
 %% Springs  k = G d^4 / (8 D^3 N)
 G = 79.3e9;     % spring steel, Pa
 springk = @(d,OD,N) G*d^4/(8*(OD-d)^3*N);
 
-K  = springk(0.6e-3, 5e-3, 8);    % one plate spring (two total)  TODO d, OD
-K3 = springk(2.0e-3, 13e-3, 5);   % main spring at B             TODO d
-K4 = springk(0.4e-3, 6e-3, 40);   % rack return spring           TODO d
+K  = springk(0.9e-3, 8e-3, 8);    % one plate spring (two total)  
+K3 = springk(2.0e-3, 18.5e-3, 5);   % main spring at B             
+K4 = springk(0.469e-3, 6e-3, 40);   % rack return spring     
 
 %% Masses (kg) and inertias
 m_L = 0.080;    % one long lever        TODO
